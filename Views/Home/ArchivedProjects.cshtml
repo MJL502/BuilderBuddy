@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Archived Projects";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>This is where the user can view past project data.</p>
+
+<!-- change create user-->
+
+<input type="button" value="View by Date" onclick="location.href='@Url.Action("Create", "User")'" />
+
+<input type="button" value="View by Name" onclick="location.href='@Url.Action("Create", "User")'" />
+
+<input type="button" value="View All" onclick="location.href='@Url.Action("Create", "User")'" />

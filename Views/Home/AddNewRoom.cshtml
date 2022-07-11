@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Add New Room";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Add data for the Room.</p>
+
+
+<p>Enter a Room Name:</p>
+
+<!-- change index, home, and red color -->
+@model BuilderBuddy.Models.Room
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+@Html.TextBoxFor(m => m.RoomName, new {@Value = "Enter Name", @class = "red" })
+}
+<style>
+    .red { color:red; }
+</style>
+
+<p>Enter number of walls</p>
+
+<!-- is simpler better -->
+
+@Html.TextBoxFor(m => m.NumberofWalls, new { @type = "number" })
+
+<style>
+    .red { color:red; }
+</style>
+
+
+<!-- change end of next line -->
+
+<input type="button" value="Save and Create Estimate" onclick="location.href='@Url.Action("Create", "User")'" />

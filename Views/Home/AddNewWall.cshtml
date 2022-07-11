@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Add New Wall";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Add data for the Wall:</p>
+
+
+<p>Enter Wall Height:</p>
+
+@model BuilderBuddy.Models.Wall
+
+@Html.DropDownListFor(m => m.Height, 
+            new SelectList(Enum.GetValues(typeof(WallHeights))), 
+            "Select Height")
+
+
+<p>Enter Wall Length:</p>
+
+<!-- is simpler better also has number limitation, but does it work-->
+
+@Html.TextBoxFor(m => m.Length, new { @type = "number" })
+
+<style>
+    .red { color:red; }
+</style>
+
+
+<!-- change end of next line -->
+
+<input type="button" value="Save and Create Estimate" onclick="location.href='@Url.Action("Create", "User")'" />
