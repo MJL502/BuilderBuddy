@@ -55,7 +55,7 @@ namespace BuilderBuddy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RoomID,RoomName,ProjectID,NumberofWalls,RoomCost")] Room room)
+        public async Task<IActionResult> Create([Bind("RoomID,RoomName,ProjectID,RoomCost")] Room room)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace BuilderBuddy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RoomID,RoomName,ProjectID,NumberofWalls,RoomCost")] Room room)
+        public async Task<IActionResult> Edit(int id, [Bind("RoomID,RoomName,ProjectID,RoomCost")] Room room)
         {
             if (id != room.RoomID)
             {

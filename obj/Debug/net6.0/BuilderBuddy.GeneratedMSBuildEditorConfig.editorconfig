@@ -8,117 +8,109 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BuilderBuddy
 build_property.RootNamespace = BuilderBuddy
-build_property.ProjectDir = c:\Users\mjlaw\source\repos\BuilderBuddy\
+build_property.ProjectDir = C:\Users\mjlaw\source\repos\BuilderBuddy\BuilderBuddy\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\mjlaw\source\repos\BuilderBuddy
+build_property.MSBuildProjectDirectory = C:\Users\mjlaw\source\repos\BuilderBuddy\BuilderBuddy
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Home/AddNewRoom.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGROZXdSb29tLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Home/AddNewWall.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGROZXdXYWxsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Home/ArchivedProjects.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Home/ArchivedProjects.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBcmNoaXZlZFByb2plY3RzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Home/EditProject.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Home/EditProject.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0UHJvamVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Home/Index.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Home/GetStarted.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXRTdGFydGVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Home/NewProject.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXdQcm9qZWN0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Home/Privacy.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Project/Create.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Project/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Project/Delete.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Project/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Project/Details.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Project/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Project/Edit.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Project/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Project/Index.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Project/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Room/Create.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Room/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Room/Delete.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Room/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Room/Details.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Room/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Room/Edit.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Room/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Room/Index.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Room/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Shared/Error.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Wall/Create.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Wall/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FsbFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Wall/Delete.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Wall/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FsbFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Wall/Details.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Wall/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FsbFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Wall/Edit.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Wall/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FsbFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Wall/Index.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Wall/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FsbFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/_ViewImports.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/_ViewStart.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/mjlaw/source/repos/BuilderBuddy/Views/Shared/_Layout.cshtml]
+[C:/Users/mjlaw/source/repos/BuilderBuddy/BuilderBuddy/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9autiuu61p

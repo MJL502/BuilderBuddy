@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oH3LQXTCl47s+d0XcJZ40w+IqCqZqfDOJyWAbllCW9FV6AlGqkBwiF6z1aLtC6dPzKn9AYhmc9PE1VzF58gzYg==",
+  "dgSpecHash": "VVck834T3+ymfd7rc3DiaPBPg1I4tG0YO0+oTbTAKqgGUWrIqX37M+C3dv5gewIUpeaMVlJCascroLWXTrVHmw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mjlaw\\source\\repos\\BuilderBuddy\\BuilderBuddy.csproj",
+  "projectFilePath": "C:\\Users\\mjlaw\\source\\repos\\BuilderBuddy\\BuilderBuddy\\BuilderBuddy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mjlaw\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mjlaw\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

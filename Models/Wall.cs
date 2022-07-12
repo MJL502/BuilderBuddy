@@ -9,7 +9,7 @@ namespace BuilderBuddy.Models
         [Key]
         public int WallID { get; set; }
 
-        //public Room Room { get; set; }
+        public Room? Room { get; set; }
 
         public int RoomID { get; set; }
 
@@ -18,6 +18,8 @@ namespace BuilderBuddy.Models
         public int Length { get; set; }
 
         public decimal? WallCost { get; set; }
+
+        public List<Materials>? MaterialsNeeded { get; set; }
 
 
     }

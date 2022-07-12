@@ -6,20 +6,15 @@ namespace BuilderBuddy.Models;
 public class Project
 
 {
-    
-[Key]
-public int ProjectID { get; set; }
+    [Key]
+    public int ProjectID { get; set; }
 
-public string? ProjectName  { get; set; }
+    public string? ProjectName { get; set; }
 
-public DateTime ProjectDate  { get; set; }
+    public DateTime ProjectDate { get; set; }
 
-public int? NumberOfRooms { get; set; }
+    public List<Room>? Rooms { get; set; }
 
-public List<Room>? Rooms { get; set; }
-
-public decimal? TotalCost { get; set; }
-
-//public static MvcHtmlString TextBoxFor<TModel, TProperty>(this HtmlHelper<TModel>> htmlHelper, Expression<Func<TModel, TProperty>> expression, object htmlAttributes);
+    public decimal? TotalCost { get; set; }
 
 }

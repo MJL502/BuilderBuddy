@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Get Started";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Would you like to begin a new project?</p>
+
+<input type="button" value="Add New Project" onclick="location.href='@Url.Action("Create", "Project")'" />
+
+
+<br>
+<br>
+
+
+<p>Would you like to view, edit, or delete a past projects?</p>
+
+<input type="button" value="Archived Projects" onclick="location.href='@Url.Action("Index", "Project")'" />
+
+<br>
+<br>

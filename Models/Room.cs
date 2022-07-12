@@ -15,8 +15,6 @@ namespace BuilderBuddy.Models
 
         public int ProjectID { get; set; }
 
-        public int NumberofWalls { get; set; }
-
         public List<Wall>? Walls { get; set; }
 
         public decimal? RoomCost { get; set; }

@@ -18,11 +18,12 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult NewProject()
+    public IActionResult GetStarted()
     {
         return View();
     }
 
+    /*
     public IActionResult EditProject()
     {
         return View();
@@ -32,6 +33,7 @@ public class HomeController : Controller
     {
         return View();
     }
+    */
 
     public IActionResult Privacy()
     {

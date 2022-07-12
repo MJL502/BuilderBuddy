@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mjlaw\\source\\repos\\BuilderBuddy\\BuilderBuddy.csproj": {}
+    "C:\\Users\\mjlaw\\source\\repos\\BuilderBuddy\\BuilderBuddy\\BuilderBuddy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mjlaw\\source\\repos\\BuilderBuddy\\BuilderBuddy.csproj": {
+    "C:\\Users\\mjlaw\\source\\repos\\BuilderBuddy\\BuilderBuddy\\BuilderBuddy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mjlaw\\source\\repos\\BuilderBuddy\\BuilderBuddy.csproj",
+        "projectUniqueName": "C:\\Users\\mjlaw\\source\\repos\\BuilderBuddy\\BuilderBuddy\\BuilderBuddy.csproj",
         "projectName": "BuilderBuddy",
-        "projectPath": "C:\\Users\\mjlaw\\source\\repos\\BuilderBuddy\\BuilderBuddy.csproj",
+        "projectPath": "C:\\Users\\mjlaw\\source\\repos\\BuilderBuddy\\BuilderBuddy\\BuilderBuddy.csproj",
         "packagesPath": "C:\\Users\\mjlaw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mjlaw\\source\\repos\\BuilderBuddy\\obj\\",
+        "outputPath": "C:\\Users\\mjlaw\\source\\repos\\BuilderBuddy\\BuilderBuddy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
