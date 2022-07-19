@@ -10,21 +10,58 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuilderBuddy.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220710144034_UpdateWithTestInfo")]
-    partial class UpdateWithTestInfo
+    [Migration("20220713215152_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.6");
 
+            modelBuilder.Entity("BuilderBuddy.Models.Materials", b =>
+                {
+                    b.Property<int>("MaterialID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("Drywall")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("DrywallCost")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("JointCompound")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("JointCompoundCost")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("JointTape")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("JointTapeCost")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Screws")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("ScrewsCost")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("WallID")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("MaterialID");
+
+                    b.HasIndex("WallID");
+
+                    b.ToTable("Materials");
+                });
+
             modelBuilder.Entity("BuilderBuddy.Models.Project", b =>
                 {
                     b.Property<int>("ProjectID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("NumberOfRooms")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("ProjectDate")
@@ -45,9 +82,6 @@ namespace BuilderBuddy.Migrations
                 {
                     b.Property<int>("RoomID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("NumberofWalls")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("ProjectID")
@@ -91,6 +125,17 @@ namespace BuilderBuddy.Migrations
                     b.ToTable("Wall");
                 });
 
+            modelBuilder.Entity("BuilderBuddy.Models.Materials", b =>
+                {
+                    b.HasOne("BuilderBuddy.Models.Wall", "Wall")
+                        .WithMany("MaterialsNeeded")
+                        .HasForeignKey("WallID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Wall");
+                });
+
             modelBuilder.Entity("BuilderBuddy.Models.Room", b =>
                 {
                     b.HasOne("BuilderBuddy.Models.Project", null)
@@ -102,11 +147,13 @@ namespace BuilderBuddy.Migrations
 
             modelBuilder.Entity("BuilderBuddy.Models.Wall", b =>
                 {
-                    b.HasOne("BuilderBuddy.Models.Room", null)
+                    b.HasOne("BuilderBuddy.Models.Room", "Room")
                         .WithMany("Walls")
                         .HasForeignKey("RoomID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("BuilderBuddy.Models.Project", b =>
@@ -117,6 +164,11 @@ namespace BuilderBuddy.Migrations
             modelBuilder.Entity("BuilderBuddy.Models.Room", b =>
                 {
                     b.Navigation("Walls");
+                });
+
+            modelBuilder.Entity("BuilderBuddy.Models.Wall", b =>
+                {
+                    b.Navigation("MaterialsNeeded");
                 });
 #pragma warning restore 612, 618
         }

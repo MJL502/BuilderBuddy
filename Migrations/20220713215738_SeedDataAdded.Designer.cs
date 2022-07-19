@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuilderBuddy.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220712214126_JulyUpdate")]
-    partial class JulyUpdate
+    [Migration("20220713215738_SeedDataAdded")]
+    partial class SeedDataAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -81,7 +81,7 @@ namespace BuilderBuddy.Migrations
                         new
                         {
                             ProjectID = 1,
-                            ProjectDate = new DateTime(2022, 7, 12, 17, 41, 26, 671, DateTimeKind.Local).AddTicks(2029),
+                            ProjectDate = new DateTime(2022, 7, 13, 17, 57, 38, 79, DateTimeKind.Local).AddTicks(3133),
                             ProjectName = "Lincoln's Cabin"
                         });
                 });
@@ -106,6 +106,14 @@ namespace BuilderBuddy.Migrations
                     b.HasIndex("ProjectID");
 
                     b.ToTable("Room");
+
+                    b.HasData(
+                        new
+                        {
+                            RoomID = 1,
+                            ProjectID = 1,
+                            RoomName = "Main Room"
+                        });
                 });
 
             modelBuilder.Entity("BuilderBuddy.Models.Wall", b =>
@@ -131,6 +139,36 @@ namespace BuilderBuddy.Migrations
                     b.HasIndex("RoomID");
 
                     b.ToTable("Wall");
+
+                    b.HasData(
+                        new
+                        {
+                            WallID = 1,
+                            Height = 8,
+                            Length = 24,
+                            RoomID = 1
+                        },
+                        new
+                        {
+                            WallID = 2,
+                            Height = 8,
+                            Length = 16,
+                            RoomID = 1
+                        },
+                        new
+                        {
+                            WallID = 3,
+                            Height = 8,
+                            Length = 24,
+                            RoomID = 1
+                        },
+                        new
+                        {
+                            WallID = 4,
+                            Height = 8,
+                            Length = 16,
+                            RoomID = 1
+                        });
                 });
 
             modelBuilder.Entity("BuilderBuddy.Models.Materials", b =>

@@ -14,8 +14,15 @@ namespace BuilderBuddy.Models
         public int RoomID { get; set; }
 
         public int Height { get; set; }
-
         public int Length { get; set; }
+
+        public decimal WallArea()
+        {
+            decimal area = Height * Length;
+            return area;
+        }
+
+        public decimal Area => WallArea();
 
         public decimal? WallCost { get; set; }
 

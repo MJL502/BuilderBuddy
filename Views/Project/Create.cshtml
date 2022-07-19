@@ -29,20 +29,87 @@
                 <span asp-validation-for="TotalCost" class="text-danger"></span>
             </div>
             -->
+
             <div class="form-group">
-                <input type="submit" value="Save Project" class="btn btn-primary" onclick="AddRoom()"/>
+                <br>
+                <br>
+                <p>Click 
+                <input type="submit" value="Save Project" class="btn btn-primary"/>
+                 to save your new project.</p>
+                <p>Then click 
+                <input type="button" value="Add a Room" onclick="location.href='@Url.Action("Create", "Room")'" />
+                to add a room to your project.</p>
+                <br>
+                <br>
+            </div>
+
+            <!--
+            
+            <div class="form-group">
+                <button type="submit" value="Save Project" class="btn btn-primary" onclick="AddRoom()"/>
                 <script>
                 function AddRoom() 
                 {
-                location.href='@Url.Action("Create", "Room")';  
+                //add ajax request here - post request to controller
+
+                $(document).ready(function () {
+ 
+                $("#btnSubmit").click(function (event) {
+ 
+                    //stop submit the form, we will post it manually.
+                    event.preventDefault();
+ 
+                    // Get form
+                    var form = $('#myform')[0];
+ 
+                   // Create an FormData object 
+                    var data = new FormData(form);
+ 
+                   // If you want to add an extra field for the FormData
+                   //data.append("CustomField", "This is some extra data, testing");
+ 
+                   // disabled the submit button
+                    $("#btnSubmit").prop("disabled", true);
+ 
+                    $.ajax({
+                        type: "POST",
+                        enctype: 'multipart/form-data',
+                        url: "/upload.php",
+                        data: data,
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        timeout: 800000,
+                        success: function (data) {
+ 
+                            $("#output").text(data);
+                            console.log("SUCCESS : ", data);
+                            $("#btnSubmit").prop("disabled", false);
+ 
+                        },
+                        error: function (e) {
+ 
+                            $("#output").text(e.responseText);
+                            console.log("ERROR : ", e);
+                            $("#btnSubmit").prop("disabled", false);
+                        
+                        location.href='@Url.Action("Create", "Room")';
+                        }
+                    });
+                   
+                });
+ 
+            });
+
+                /*
+                location.href='@Url.Action("Create", "Room")'; 
+                */
                 }
                 </script>
                 </div>
+            -->
         </form>
     </div>
-</div>
-<div>
-    <input type="button" value="Add a Room" onclick="location.href='@Url.Action("Create", "Room")'" />
 </div>
 
 

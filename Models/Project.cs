@@ -15,6 +15,8 @@ public class Project
 
     public List<Room>? Rooms { get; set; }
 
+    //public int NumberOfRooms { get; set; }
+
     public decimal? TotalCost { get; set; }
 
 }
