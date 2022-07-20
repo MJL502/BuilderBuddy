@@ -47,6 +47,7 @@ namespace BuilderBuddy.Controllers
         // GET: Wall/Create
         public IActionResult Create()
         {
+            ViewBag.ProjectID = new SelectList(_context.Project, "ProjectID", "ProjectName");
             return View();
         }
 
@@ -55,7 +56,7 @@ namespace BuilderBuddy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("WallID,RoomID,Height,Length,WallCost")] Wall wall)
+        public async Task<IActionResult> Create([Bind("WallID,Height,Length,WallCost,ProjectID")] Wall wall)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +64,7 @@ namespace BuilderBuddy.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.ProjectID = new SelectList(_context.Project, "ProjectID", "ProjectName", wall.ProjectID);
             return View(wall);
         }
 
@@ -87,7 +89,7 @@ namespace BuilderBuddy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("WallID,RoomID,Height,Length,WallCost")] Wall wall)
+        public async Task<IActionResult> Edit(int id, [Bind("WallID,Height,Length,WallCost,ProjectID")] Wall wall)
         {
             if (id != wall.WallID)
             {

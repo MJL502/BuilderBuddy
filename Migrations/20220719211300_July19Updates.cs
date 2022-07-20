@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BuilderBuddy.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class July19Updates : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -25,33 +25,12 @@ namespace BuilderBuddy.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Room",
-                columns: table => new
-                {
-                    RoomID = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    RoomName = table.Column<string>(type: "TEXT", nullable: true),
-                    ProjectID = table.Column<int>(type: "INTEGER", nullable: false),
-                    RoomCost = table.Column<decimal>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Room", x => x.RoomID);
-                    table.ForeignKey(
-                        name: "FK_Room_Project_ProjectID",
-                        column: x => x.ProjectID,
-                        principalTable: "Project",
-                        principalColumn: "ProjectID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Wall",
                 columns: table => new
                 {
                     WallID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    RoomID = table.Column<int>(type: "INTEGER", nullable: false),
+                    ProjectID = table.Column<int>(type: "INTEGER", nullable: false),
                     Height = table.Column<int>(type: "INTEGER", nullable: false),
                     Length = table.Column<int>(type: "INTEGER", nullable: false),
                     WallCost = table.Column<decimal>(type: "TEXT", nullable: true)
@@ -60,10 +39,10 @@ namespace BuilderBuddy.Migrations
                 {
                     table.PrimaryKey("PK_Wall", x => x.WallID);
                     table.ForeignKey(
-                        name: "FK_Wall_Room_RoomID",
-                        column: x => x.RoomID,
-                        principalTable: "Room",
-                        principalColumn: "RoomID",
+                        name: "FK_Wall_Project_ProjectID",
+                        column: x => x.ProjectID,
+                        principalTable: "Project",
+                        principalColumn: "ProjectID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -73,15 +52,7 @@ namespace BuilderBuddy.Migrations
                 {
                     MaterialID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    WallID = table.Column<int>(type: "INTEGER", nullable: false),
-                    Drywall = table.Column<decimal>(type: "TEXT", nullable: false),
-                    JointCompound = table.Column<decimal>(type: "TEXT", nullable: false),
-                    JointTape = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Screws = table.Column<decimal>(type: "TEXT", nullable: false),
-                    DrywallCost = table.Column<decimal>(type: "TEXT", nullable: false),
-                    JointCompoundCost = table.Column<decimal>(type: "TEXT", nullable: false),
-                    JointTapeCost = table.Column<decimal>(type: "TEXT", nullable: false),
-                    ScrewsCost = table.Column<decimal>(type: "TEXT", nullable: false)
+                    WallID = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -94,20 +65,40 @@ namespace BuilderBuddy.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Project",
+                columns: new[] { "ProjectID", "ProjectDate", "ProjectName", "TotalCost" },
+                values: new object[] { 1, new DateTime(2022, 7, 19, 17, 12, 59, 900, DateTimeKind.Local).AddTicks(8458), "Lincoln's Cabin", null });
+
+            migrationBuilder.InsertData(
+                table: "Wall",
+                columns: new[] { "WallID", "Height", "Length", "ProjectID", "WallCost" },
+                values: new object[] { 1, 8, 24, 1, null });
+
+            migrationBuilder.InsertData(
+                table: "Wall",
+                columns: new[] { "WallID", "Height", "Length", "ProjectID", "WallCost" },
+                values: new object[] { 2, 8, 16, 1, null });
+
+            migrationBuilder.InsertData(
+                table: "Wall",
+                columns: new[] { "WallID", "Height", "Length", "ProjectID", "WallCost" },
+                values: new object[] { 3, 8, 24, 1, null });
+
+            migrationBuilder.InsertData(
+                table: "Wall",
+                columns: new[] { "WallID", "Height", "Length", "ProjectID", "WallCost" },
+                values: new object[] { 4, 8, 16, 1, null });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Materials_WallID",
                 table: "Materials",
                 column: "WallID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Room_ProjectID",
-                table: "Room",
-                column: "ProjectID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Wall_RoomID",
+                name: "IX_Wall_ProjectID",
                 table: "Wall",
-                column: "RoomID");
+                column: "ProjectID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -117,9 +108,6 @@ namespace BuilderBuddy.Migrations
 
             migrationBuilder.DropTable(
                 name: "Wall");
-
-            migrationBuilder.DropTable(
-                name: "Room");
 
             migrationBuilder.DropTable(
                 name: "Project");

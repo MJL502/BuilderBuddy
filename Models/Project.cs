@@ -13,9 +13,7 @@ public class Project
 
     public DateTime ProjectDate { get; set; }
 
-    public List<Room>? Rooms { get; set; }
-
-    //public int NumberOfRooms { get; set; }
+    public List<Wall>? Walls { get; set; }
 
     public decimal? TotalCost { get; set; }
 

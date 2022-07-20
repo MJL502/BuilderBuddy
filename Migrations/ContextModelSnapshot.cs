@@ -22,30 +22,6 @@ namespace BuilderBuddy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Drywall")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("DrywallCost")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("JointCompound")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("JointCompoundCost")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("JointTape")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("JointTapeCost")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Screws")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("ScrewsCost")
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("WallID")
                         .HasColumnType("INTEGER");
 
@@ -79,38 +55,8 @@ namespace BuilderBuddy.Migrations
                         new
                         {
                             ProjectID = 1,
-                            ProjectDate = new DateTime(2022, 7, 13, 17, 57, 38, 79, DateTimeKind.Local).AddTicks(3133),
+                            ProjectDate = new DateTime(2022, 7, 19, 17, 12, 59, 900, DateTimeKind.Local).AddTicks(8458),
                             ProjectName = "Lincoln's Cabin"
-                        });
-                });
-
-            modelBuilder.Entity("BuilderBuddy.Models.Room", b =>
-                {
-                    b.Property<int>("RoomID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ProjectID")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<decimal?>("RoomCost")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("RoomName")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("RoomID");
-
-                    b.HasIndex("ProjectID");
-
-                    b.ToTable("Room");
-
-                    b.HasData(
-                        new
-                        {
-                            RoomID = 1,
-                            ProjectID = 1,
-                            RoomName = "Main Room"
                         });
                 });
 
@@ -126,7 +72,7 @@ namespace BuilderBuddy.Migrations
                     b.Property<int>("Length")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("RoomID")
+                    b.Property<int>("ProjectID")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal?>("WallCost")
@@ -134,7 +80,7 @@ namespace BuilderBuddy.Migrations
 
                     b.HasKey("WallID");
 
-                    b.HasIndex("RoomID");
+                    b.HasIndex("ProjectID");
 
                     b.ToTable("Wall");
 
@@ -144,28 +90,28 @@ namespace BuilderBuddy.Migrations
                             WallID = 1,
                             Height = 8,
                             Length = 24,
-                            RoomID = 1
+                            ProjectID = 1
                         },
                         new
                         {
                             WallID = 2,
                             Height = 8,
                             Length = 16,
-                            RoomID = 1
+                            ProjectID = 1
                         },
                         new
                         {
                             WallID = 3,
                             Height = 8,
                             Length = 24,
-                            RoomID = 1
+                            ProjectID = 1
                         },
                         new
                         {
                             WallID = 4,
                             Height = 8,
                             Length = 16,
-                            RoomID = 1
+                            ProjectID = 1
                         });
                 });
 
@@ -180,32 +126,18 @@ namespace BuilderBuddy.Migrations
                     b.Navigation("Wall");
                 });
 
-            modelBuilder.Entity("BuilderBuddy.Models.Room", b =>
+            modelBuilder.Entity("BuilderBuddy.Models.Wall", b =>
                 {
-                    b.HasOne("BuilderBuddy.Models.Project", null)
-                        .WithMany("Rooms")
+                    b.HasOne("BuilderBuddy.Models.Project", "Project")
+                        .WithMany("Walls")
                         .HasForeignKey("ProjectID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("BuilderBuddy.Models.Wall", b =>
-                {
-                    b.HasOne("BuilderBuddy.Models.Room", "Room")
-                        .WithMany("Walls")
-                        .HasForeignKey("RoomID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Room");
+                    b.Navigation("Project");
                 });
 
             modelBuilder.Entity("BuilderBuddy.Models.Project", b =>
-                {
-                    b.Navigation("Rooms");
-                });
-
-            modelBuilder.Entity("BuilderBuddy.Models.Room", b =>
                 {
                     b.Navigation("Walls");
                 });

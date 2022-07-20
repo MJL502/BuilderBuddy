@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BuilderBuddy.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using BuilderBuddy.Models;
 using Newtonsoft.Json;
 
 namespace BuilderBuddy.Controllers
@@ -22,28 +22,18 @@ namespace BuilderBuddy.Controllers
         // GET: Project
         public async Task<IActionResult> Index()
         {
-            return _context.Project != null ?
-                        View(await _context.Project.ToListAsync()) :
-                        Problem("Entity set 'Context.Project'  is null.");
+              return _context.Project != null ? 
+                          View(await _context.Project.ToListAsync()) :
+                          Problem("Entity set 'Context.Project'  is null.");
 
             //query data - build json array - modify View  
 
-            var RoomQuery =
-                from p in _context.Set<Project>()
-                join r in _context.Set<Room>()
-                    on p.ProjectID equals r.ProjectID into grouping
-                from r in grouping.DefaultIfEmpty()
-                select new { p, r };
-
             var WallQuery =
-                from r in _context.Set<Room>()
+                from p in _context.Set<Project>()
                 join w in _context.Set<Wall>()
-                    on r.RoomID equals w.RoomID into grouping
+                    on p.ProjectID equals w.ProjectID into grouping
                 from w in grouping.DefaultIfEmpty()
-                select new { r, w };
-
-            string RoomJson = JsonConvert.SerializeObject(RoomQuery);
-            Console.WriteLine(RoomJson);
+                select new { p, w };
 
             string WallJson = JsonConvert.SerializeObject(WallQuery);
             Console.WriteLine(WallJson);
@@ -102,8 +92,8 @@ namespace BuilderBuddy.Controllers
                         ON r.RoomID = w.RoomID
                         WHERE p.ProjectID = 1;
                         */
-        }
 
+        }
 
         // GET: Project/Details/5
         public async Task<IActionResult> Details(int? id)

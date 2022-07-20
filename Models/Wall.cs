@@ -9,9 +9,9 @@ namespace BuilderBuddy.Models
         [Key]
         public int WallID { get; set; }
 
-        public Room? Room { get; set; }
+        public Project? Project { get; set; }
 
-        public int RoomID { get; set; }
+        public int ProjectID { get; set; }
 
         public int Height { get; set; }
         public int Length { get; set; }
@@ -24,21 +24,49 @@ namespace BuilderBuddy.Models
 
         public decimal Area => WallArea();
 
-        public decimal? WallCost { get; set; }
+        public Materials materials = new Materials();
 
-        public List<Materials>? MaterialsNeeded { get; set; }
+        public decimal WallCost
+        {
+            get
+            {
+                return materials.DrywallCost + materials.JointCompoundCost + materials.JointTapeCost + materials.ScrewsCost;
+            }
+        }
 
 
-    }
+        public decimal Drywall
+        {
+            get
+            {
+                return materials.Drywall;
+            }
+        }
 
-    public enum WallHeights
-    {
-        Eight,
-        Nine,
-        Ten,
-        Twelve,
-        Fourteen,
-        Sixteen,
-        Twenty
+        public decimal JointCompound
+        {
+            get
+            {
+                return materials.JointCompound;
+            }
+        }
+
+        public decimal JointTape
+        {
+            get
+            {
+                return materials.JointTape;
+            }
+        }
+
+        public decimal Screws
+        {
+            get
+            {
+                return materials.Screws;
+            }
+        }
+
+
     }
 }
