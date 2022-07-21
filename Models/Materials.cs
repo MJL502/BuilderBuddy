@@ -8,7 +8,7 @@ namespace BuilderBuddy.Models
         [Key]
         public int MaterialID { get; set; }
 
-        public Wall? Wall { get; set; }
+        //public Wall? Wall { get; set; }
 
         public int WallID { get; set; }
 

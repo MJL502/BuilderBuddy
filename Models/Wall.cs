@@ -24,6 +24,9 @@ namespace BuilderBuddy.Models
 
         public decimal Area => WallArea();
 
+        public decimal WallCost { get; set; }
+
+        /*
         public Materials materials = new Materials();
 
         public decimal WallCost
@@ -67,6 +70,6 @@ namespace BuilderBuddy.Models
             }
         }
 
-
+        */
     }
 }
