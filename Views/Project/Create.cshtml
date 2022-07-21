@@ -22,16 +22,21 @@
                 <input asp-for="ProjectDate" class="form-control" />
                 <span asp-validation-for="ProjectDate" class="text-danger"></span>
             </div>
+            <!--
             <div class="form-group">
                 <label asp-for="TotalCost" class="control-label"></label>
                 <input asp-for="TotalCost" class="form-control" />
                 <span asp-validation-for="TotalCost" class="text-danger"></span>
             </div>
+            -->
             <div class="form-group">
+                <br>
                 <input type="submit" value="Create" class="btn btn-primary" />
-
+                <br>
+                <br>
                 <input type="button" value="Add New Wall" onclick="location.href='@Url.Action("Create", "Wall")'" />
-
+                <br>
+                <br>
 
             </div>
         </form>

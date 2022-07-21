@@ -81,6 +81,7 @@ namespace BuilderBuddy.Controllers
             {
                 return NotFound();
             }
+            ViewBag.ProjectID = new SelectList(_context.Project, "ProjectID", "ProjectName");
             return View(wall);
         }
 
@@ -116,6 +117,7 @@ namespace BuilderBuddy.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.ProjectID = new SelectList(_context.Project, "ProjectID", "ProjectName", wall.ProjectID);
             return View(wall);
         }
 

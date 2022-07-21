@@ -15,6 +15,28 @@ public class Project
 
     public List<Wall>? Walls { get; set; }
 
-    public decimal? TotalCost { get; set; }
+    private readonly Context _context;
+
+    private decimal StartingCost = 0m;
+    public decimal? TotalCost 
+    { 
+        get
+        {
+            var query =
+            from P in _context.Project
+            join W in _context.Wall on P.ProjectID equals W.ProjectID
+            where W.WallCost > 0
+            select new
+            {
+                IndividualWallCost = W.WallCost
+            };
+            foreach (var IndividualWallCost in query)
+            {
+                StartingCost = Convert.ToDecimal(StartingCost) + Convert.ToDecimal(IndividualWallCost);
+            }
+
+            return StartingCost;
+        }
+    }
 
 }
