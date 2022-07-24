@@ -12,14 +12,15 @@ namespace BuilderBuddy.Repository
 
     public class QueryRepository : IRepository
     {
+        private readonly Context _context;
         public IEnumerable<Project> AddAllProjectWalls()
         {
-            var totalCost = from p in Project
-                            from w in Wall
+            var totalCost = from p in _context.Project
+                            from w in _context.Wall
                             where p.ProjectID == w.ProjectID
                             select w.WallCost;
 
-            return totalCost.Sum();
+            return _context.Wall.Where(w => w.ProjectID == ProjectID).Select(x => x.WallCost).Sum();
         }
     }
 }
