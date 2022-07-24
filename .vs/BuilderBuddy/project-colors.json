@@ -5,7 +5,17 @@
       "ProjectGuid": "eb6a35b9-ee92-4346-8129-4e002502c01f",
       "DisplayName": "BuilderBuddy",
       "ColorIndex": 0
+    },
+    "ef857e98-fbd1-4516-a451-89f6dfe82f96": {
+      "ProjectGuid": "ef857e98-fbd1-4516-a451-89f6dfe82f96",
+      "DisplayName": "UnitTests",
+      "ColorIndex": 1
+    },
+    "6e26efcc-fe1d-4c0b-80d6-7c95958d380e": {
+      "ProjectGuid": "6e26efcc-fe1d-4c0b-80d6-7c95958d380e",
+      "DisplayName": "UnitTests",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }

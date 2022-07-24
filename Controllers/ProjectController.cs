@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BuilderBuddy.Models;
 using Newtonsoft.Json;
+using BuilderBuddy.Repository;
 
 namespace BuilderBuddy.Controllers
 {
@@ -27,71 +28,70 @@ namespace BuilderBuddy.Controllers
                           Problem("Entity set 'Context.Project'  is null.");
 
             //query data - build json array - modify View  
-
-            var WallQuery =
-                from p in _context.Set<Project>()
-                join w in _context.Set<Wall>()
-                    on p.ProjectID equals w.ProjectID into grouping
-                from w in grouping.DefaultIfEmpty()
-                select new { p, w };
-
-            string WallJson = JsonConvert.SerializeObject(WallQuery);
-            Console.WriteLine(WallJson);
-
-
             /*
-                        var ProjectIDS = new List<ProjectID>() {
-                            new Student(){ Id = 1, Name="Bill"},
-                            new Student(){ Id = 2, Name="Steve"},
-                            new Student(){ Id = 3, Name="Ram"},
-                            new Student(){ Id = 4, Name="Abdul"}
-                        };
+                        var WallQuery =
+                            from p in _context.Set<Project>()
+                            join w in _context.Set<Wall>()
+                                on p.ProjectID equals w.ProjectID into grouping
+                            from w in grouping.DefaultIfEmpty()
+                            select new { p, w };
 
-                        //get all students whose name is Bill
-                        var result = from p in ProjectIDs
-                                     where p.ID => 0
-                                     select p;
-
-                        foreach (var Project in result)
-                            ;
+                        string WallJson = JsonConvert.SerializeObject(WallQuery);
+                        Console.WriteLine(WallJson);
 
 
-                        int ProjectIDS = new List<int>; 
-                        ProjectIDS = "SELECT ProjectID FROM Project"
+                                var ProjectIDS = new List<ProjectID>() {
+                                    new Student(){ Id = 1, Name="Bill"},
+                                    new Student(){ Id = 2, Name="Steve"},
+                                    new Student(){ Id = 3, Name="Ram"},
+                                    new Student(){ Id = 4, Name="Abdul"}
+                                };
+
+                                //get all students whose name is Bill
+                                var result = from p in ProjectIDs
+                                             where p.ID => 0
+                                             select p;
+
+                                foreach (var Project in result)
+                                    ;
 
 
-                        List<int> ProjectIDS = "SELECT ProjectID FROM Project";
-
-                        foreach (int IDNumber in ProjectIDS)
-                        {
-
-                        string queryProjectDetails =
-                        "SELECT p.ProjectID, p.ProjectName, p.ProjectDate, p.TotalCost, r.RoomName, r.RoomCost, w.WallID, w.Height, w.Length, w.WallCost" +
-                        "FROM Project p" +
-                        "LEFT JOIN Room r" +
-                        "ON p.ProjectID = r.ProjectID" +
-                        "LEFT JOIN Wall w" +
-                        "ON r.RoomID = w.RoomID" +
-                        "WHERE p.ProjectID = 1; ";
-
-                        //NEED to make the project ID feed dynamically
-
-                        string stringjson = JsonConvert.SerializeObject(queryProjectDetails);
-                        Console.WriteLine(stringjson);
+                                int ProjectIDS = new List<int>; 
+                                ProjectIDS = "SELECT ProjectID FROM Project"
 
 
+                                List<int> ProjectIDS = "SELECT ProjectID FROM Project";
+
+                                foreach (int IDNumber in ProjectIDS)
+                                {
+
+                                string queryProjectDetails =
+                                "SELECT p.ProjectID, p.ProjectName, p.ProjectDate, p.TotalCost, r.RoomName, r.RoomCost, w.WallID, w.Height, w.Length, w.WallCost" +
+                                "FROM Project p" +
+                                "LEFT JOIN Room r" +
+                                "ON p.ProjectID = r.ProjectID" +
+                                "LEFT JOIN Wall w" +
+                                "ON r.RoomID = w.RoomID" +
+                                "WHERE p.ProjectID = 1; ";
+
+                                //NEED to make the project ID feed dynamically
+
+                                string stringjson = JsonConvert.SerializeObject(queryProjectDetails);
+                                Console.WriteLine(stringjson);
 
 
-                        /* THIS QUERY WORKS
-                        from Project
-                        SELECT p.ProjectID, p.ProjectName, p.ProjectDate, p.TotalCost, r.RoomName, r.RoomCost, w.WallID, w.Height, w.Length, w.WallCost
-                        FROM Project p
-                        LEFT JOIN Room r
-                        ON p.ProjectID = r.ProjectID
-                        LEFT JOIN Wall w
-                        ON r.RoomID = w.RoomID
-                        WHERE p.ProjectID = 1;
-                        */
+
+
+                                /* THIS QUERY WORKS
+                                from Project
+                                SELECT p.ProjectID, p.ProjectName, p.ProjectDate, p.TotalCost, r.RoomName, r.RoomCost, w.WallID, w.Height, w.Length, w.WallCost
+                                FROM Project p
+                                LEFT JOIN Room r
+                                ON p.ProjectID = r.ProjectID
+                                LEFT JOIN Wall w
+                                ON r.RoomID = w.RoomID
+                                WHERE p.ProjectID = 1;
+                                */
 
         }
 
@@ -124,13 +124,13 @@ namespace BuilderBuddy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProjectID,ProjectName,ProjectDate,TotalCost")] Project project)
+        public async Task<IActionResult> Create(Project project)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(project);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Create", "Wall", new { id = project.ProjectID });
             }
             return View(project);
         }
@@ -226,6 +226,17 @@ namespace BuilderBuddy.Controllers
         private bool ProjectExists(int id)
         {
           return (_context.Project?.Any(e => e.ProjectID == id)).GetValueOrDefault();
+        }
+
+
+
+
+
+        private IRepository _repo = new QueryRepository();
+
+        public ActionResult Estimate()
+        {
+            return View(_repo.AddAllProjectWalls());
         }
     }
 }

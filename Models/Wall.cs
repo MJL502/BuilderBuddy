@@ -13,18 +13,44 @@ namespace BuilderBuddy.Models
 
         public int ProjectID { get; set; }
 
+        private Context _context;
+
+        /*
+        public string ProjectName
+        {
+            get
+            {     
+                var queryProjectName =
+                from P in _context.Project
+                from W in _context.Wall
+                where P.ProjectID == W.ProjectID
+                select P.ProjectName;
+
+                return queryProjectName.ToString();
+                
+            }
+             set
+            {
+            }
+        }      
+        */
+
         public int Height { get; set; }
+
         public int Length { get; set; }
 
-        public decimal WallArea()
+        public decimal Area
         {
-            decimal area = Height * Length;
-            return area;
+            get 
+            {
+                decimal area = Height * Length;
+                return area;
+            }
+            set 
+            { 
+            }
         }
 
-        public decimal Area => WallArea();
-
-        //public decimal WallCost { get; set; }
 
         /*
         public decimal DrywallFormulaTwo
@@ -37,6 +63,9 @@ namespace BuilderBuddy.Models
                 decimal totalSheets = (sheetsAcross * fullSheets) + (sheetsAcross * (Math.Floor(8 / topSheet) * 4));
 
                 return totalSheets;
+            }
+            set
+            {
             }
         }
         */
@@ -51,6 +80,9 @@ namespace BuilderBuddy.Models
 
                 return totalSheets;
             }
+            set 
+            { 
+            }
         }
 
         public decimal JointCompound
@@ -60,6 +92,9 @@ namespace BuilderBuddy.Models
                 decimal jointCompoundPerSF = 0.053m;
                 decimal poundsOfJointCompound = Math.Ceiling(jointCompoundPerSF * Area);
                 return poundsOfJointCompound;
+            }
+            set
+            {
             }
         }
 
@@ -71,6 +106,9 @@ namespace BuilderBuddy.Models
                 decimal rollsofTape = feetOfTape / 500m * 1.1m;
                 return rollsofTape;
             }
+            set
+            {
+            }
         }
 
         public decimal Screws
@@ -78,6 +116,9 @@ namespace BuilderBuddy.Models
             get
             {
                 return Math.Ceiling(Area * 1.1m);
+            }
+            set
+            { 
             }
         }
 
@@ -89,6 +130,9 @@ namespace BuilderBuddy.Models
             {
                 return Drywall * materialPriceList.DrywallPrice;
             }
+            set
+            { 
+            }
         }
 
         public decimal JointCompoundCost
@@ -96,6 +140,9 @@ namespace BuilderBuddy.Models
             get
             {
                 return JointCompound * materialPriceList.JointCompoundPrice;
+            }
+            set
+            { 
             }
         }
 
@@ -106,6 +153,9 @@ namespace BuilderBuddy.Models
             {
                 return JointTape * materialPriceList.JointTapePrice;
             }
+            set
+            { 
+            }
         }
 
         public decimal ScrewsCost
@@ -113,6 +163,9 @@ namespace BuilderBuddy.Models
             get
             {
                 return Math.Ceiling(Screws * materialPriceList.ScrewsPrice);
+            }
+            set
+            { 
             }
         }
 
@@ -122,40 +175,9 @@ namespace BuilderBuddy.Models
             {
                 return DrywallCost + JointCompoundCost + JointTapeCost + ScrewsCost;
             }
-        }
-
-        /*
-        public decimal Drywall
-        {
-            get
-            {
-                return materials.Drywall;
+            set
+            { 
             }
         }
-
-        public decimal JointCompound
-        {
-            get
-            {
-                return materials.JointCompound;
-            }
-        }
-
-        public decimal JointTape
-        {
-            get
-            {
-                return materials.JointTape;
-            }
-        }
-
-        public decimal Screws
-        {
-            get
-            {
-                return materials.Screws;
-            }
-        }
-        */
     }
 }

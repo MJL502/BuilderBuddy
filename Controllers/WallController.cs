@@ -45,9 +45,9 @@ namespace BuilderBuddy.Controllers
         }
 
         // GET: Wall/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
-            ViewBag.ProjectID = new SelectList(_context.Project, "ProjectID", "ProjectName");
+            ViewBag.ProjectID = new SelectList(_context.Project, "ProjectID", "ProjectName", id);
             return View();
         }
 
@@ -62,7 +62,7 @@ namespace BuilderBuddy.Controllers
             {
                 _context.Add(wall);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Project", new { id = wall.ProjectID });
             }
             ViewBag.ProjectID = new SelectList(_context.Project, "ProjectID", "ProjectName", wall.ProjectID);
             return View(wall);

@@ -39,7 +39,11 @@
 
             <div class="form-group">
                 <br>
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <p>Save your wall</p>
+                <input type="submit" value="Save Wall" class="btn btn-primary"/>
+                <br><br><br>
+                <p>View List of Projects.  Make sure you save your wall first.</p>
+                <input type="button" value="View Projects" class="btn btn-primary" onclick="location.href='@Url.Action("index", "project", "id = Wall.ProjectID")'"./>
             </div>
         </form>
     </div>
@@ -48,6 +52,6 @@
 <div>
        <br>
        <br>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to List of Walls</a>
 </div>
 
