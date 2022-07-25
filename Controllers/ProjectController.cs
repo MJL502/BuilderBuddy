@@ -238,5 +238,6 @@ namespace BuilderBuddy.Controllers
         {
             return View(_repo.AddAllProjectWalls());
         }
+
     }
 }

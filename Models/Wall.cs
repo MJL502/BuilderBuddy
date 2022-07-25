@@ -1,4 +1,5 @@
-﻿using BuilderBuddy.Models;
+﻿using BuilderBuddy.Controllers;
+using BuilderBuddy.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace BuilderBuddy.Models
@@ -15,11 +16,11 @@ namespace BuilderBuddy.Models
 
         private Context _context;
 
-        /*
+        /* 
         public string ProjectName
-        {
+            {
             get
-            {     
+            {
                 var queryProjectName =
                 from P in _context.Project
                 from W in _context.Wall
@@ -27,14 +28,14 @@ namespace BuilderBuddy.Models
                 select P.ProjectName;
 
                 return queryProjectName.ToString();
-                
-            }
-             set
+
+                }
+
+            set
             {
             }
-        }      
-        */
-
+        }
+         */
         public int Height { get; set; }
 
         public int Length { get; set; }
@@ -70,28 +71,31 @@ namespace BuilderBuddy.Models
         }
         */
 
-        public decimal Drywall
+        public int Drywall
         {
             get
             {
                 decimal baseSheets = Math.Ceiling(Area / 32);
                 decimal overage = 1.1m;
-                decimal totalSheets = Math.Ceiling(baseSheets * overage);
+                decimal totalSheets = Math.Round(baseSheets * overage);
+                int totalSheetsInt = Decimal.ToInt32(totalSheets);
 
-                return totalSheets;
+
+                return totalSheetsInt;
             }
             set 
             { 
             }
         }
 
-        public decimal JointCompound
+        public int JointCompound
         {
             get
             {
                 decimal jointCompoundPerSF = 0.053m;
                 decimal poundsOfJointCompound = Math.Ceiling(jointCompoundPerSF * Area);
-                return poundsOfJointCompound;
+                int JCint = Decimal.ToInt32(poundsOfJointCompound);
+                return JCint;
             }
             set
             {
@@ -111,11 +115,14 @@ namespace BuilderBuddy.Models
             }
         }
 
-        public decimal Screws
+        public int Screws
         {
             get
             {
-                return Math.Ceiling(Area * 1.1m);
+                decimal screwsDec = Math.Ceiling(Area * 1.1m);
+                int screwsInt = Decimal.ToInt32(screwsDec);
+
+                return screwsInt;
             }
             set
             { 

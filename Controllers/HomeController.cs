@@ -35,7 +35,7 @@ public class HomeController : Controller
     }
     */
 
-    public IActionResult Privacy()
+    public IActionResult Help()
     {
         return View();
     }

@@ -12,40 +12,54 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th colspan="3" style="border:1px solid brown;">
+                <p align="center">WALL INFORMATION</p>
+            </th>
+            
+            <th colspan="4" style="border:1px solid brown;">
+                <p align="center">MATERIAL SHOPPING LIST</p>
+            </th>
+
+            <th colspan="5" style="border:1px solid brown;">
+                <p align="center">COST ESTIMATES</p>
+            </th>
+
+        </tr>
+        <tr>
+            <th style="border:1px solid brown;">
                 @Html.DisplayNameFor(model => model.ProjectID)
             </th>
-            <th>
+            <th style="border:1px solid brown;">
                 @Html.DisplayNameFor(model => model.Height)
             </th>
-            <th>
+            <th style="border:1px solid brown;">
                 @Html.DisplayNameFor(model => model.Length)
             </th>
-             <th>
+             <th style="border:1px solid brown;">
                 @Html.DisplayNameFor(model => model.Drywall)
             </th>
-             <th>
+             <th style="border:1px solid brown;">
                 @Html.DisplayNameFor(model => model.JointCompound)
             </th>
-             <th>
+             <th style="border:1px solid brown;">
                 @Html.DisplayNameFor(model => model.JointTape)
             </th>
-             <th>
+             <th style="border:1px solid brown;">
                 @Html.DisplayNameFor(model => model.Screws)
             </th>
-             <th>
+             <th style="border:1px solid brown;">
                 @Html.DisplayNameFor(model => model.DrywallCost)
             </th>
-             <th>
+             <th style="border:1px solid brown;">
                 @Html.DisplayNameFor(model => model.JointCompoundCost)
             </th>
-             <th>
+             <th style="border:1px solid brown;">
                 @Html.DisplayNameFor(model => model.JointTapeCost)
             </th>
-             <th>
+             <th style="border:1px solid brown;">
                 @Html.DisplayNameFor(model => model.ScrewsCost)
             </th>
-            <th>
+            <th style="border:1px solid brown;">
                 @Html.DisplayNameFor(model => model.WallCost)
             </th>
             <th></th>
@@ -76,19 +90,19 @@
                 @Html.DisplayFor(modelItem => item.Screws)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DrywallCost)
+                $@Html.DisplayFor(modelItem => item.DrywallCost)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.JointCompoundCost)
+                $@Html.DisplayFor(modelItem => item.JointCompoundCost)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.JointTapeCost)
+                $@Html.DisplayFor(modelItem => item.JointTapeCost)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ScrewsCost)
+                $@Html.DisplayFor(modelItem => item.ScrewsCost)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.WallCost)
+                $@Html.DisplayFor(modelItem => item.WallCost)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.WallID">Edit</a> |

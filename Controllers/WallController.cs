@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BuilderBuddy.Models;
+using BuilderBuddy.Repository;
 
 namespace BuilderBuddy.Controllers
 {
@@ -162,5 +163,16 @@ namespace BuilderBuddy.Controllers
         {
           return (_context.Wall?.Any(e => e.WallID == id)).GetValueOrDefault();
         }
+
+
+
+
+        private IRepository _repo = new QueryRepository();
+
+        public ActionResult GetProjectName()
+        {
+            return View(_repo.GetProjectName());
+        }
+
     }
 }
