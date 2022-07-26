@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuilderBuddy.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220723224527_WallUpdates")]
-    partial class WallUpdates
+    [Migration("20220726224320_NewSeedData")]
+    partial class NewSeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,6 +54,9 @@ namespace BuilderBuddy.Migrations
                     b.Property<decimal>("ScrewsCost")
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("TotalCost")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("ProjectID");
 
                     b.ToTable("Project");
@@ -68,10 +71,26 @@ namespace BuilderBuddy.Migrations
                             JointCompoundCost = 0m,
                             JointTapeCost = 0m,
                             PoundsOfJointCompound = 0m,
-                            ProjectDate = new DateTime(2022, 7, 23, 18, 45, 27, 331, DateTimeKind.Local).AddTicks(4078),
+                            ProjectDate = new DateTime(2022, 7, 26, 18, 43, 20, 379, DateTimeKind.Local).AddTicks(6434),
                             ProjectName = "Lincoln's Cabin",
                             RollsOfTape = 0m,
-                            ScrewsCost = 0m
+                            ScrewsCost = 0m,
+                            TotalCost = 0m
+                        },
+                        new
+                        {
+                            ProjectID = 2,
+                            BoxesOfScrews = 0m,
+                            DrywallCost = 0m,
+                            DrywallSheets = 0m,
+                            JointCompoundCost = 0m,
+                            JointTapeCost = 0m,
+                            PoundsOfJointCompound = 0m,
+                            ProjectDate = new DateTime(2022, 7, 26, 18, 43, 20, 379, DateTimeKind.Local).AddTicks(6492),
+                            ProjectName = "John Doe Dining Room Reno",
+                            RollsOfTape = 0m,
+                            ScrewsCost = 0m,
+                            TotalCost = 0m
                         });
                 });
 
@@ -84,8 +103,8 @@ namespace BuilderBuddy.Migrations
                     b.Property<decimal>("Area")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Drywall")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Drywall")
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("DrywallCost")
                         .HasColumnType("TEXT");
@@ -93,8 +112,8 @@ namespace BuilderBuddy.Migrations
                     b.Property<int>("Height")
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("JointCompound")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("JointCompound")
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("JointCompoundCost")
                         .HasColumnType("TEXT");
@@ -111,8 +130,8 @@ namespace BuilderBuddy.Migrations
                     b.Property<int>("ProjectID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Screws")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Screws")
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("ScrewsCost")
                         .HasColumnType("TEXT");
@@ -131,16 +150,16 @@ namespace BuilderBuddy.Migrations
                         {
                             WallID = 1,
                             Area = 192m,
-                            Drywall = 7m,
+                            Drywall = 7,
                             DrywallCost = 105m,
                             Height = 8,
-                            JointCompound = 11m,
+                            JointCompound = 11,
                             JointCompoundCost = 5.5m,
                             JointTape = 0.2464m,
                             JointTapeCost = 1.2320m,
                             Length = 24,
                             ProjectID = 1,
-                            Screws = 212m,
+                            Screws = 212,
                             ScrewsCost = 7m,
                             WallCost = 118.7320m
                         },
@@ -148,33 +167,33 @@ namespace BuilderBuddy.Migrations
                         {
                             WallID = 2,
                             Area = 128m,
-                            Drywall = 5m,
-                            DrywallCost = 75m,
+                            Drywall = 4,
+                            DrywallCost = 60m,
                             Height = 8,
-                            JointCompound = 7m,
+                            JointCompound = 7,
                             JointCompoundCost = 3.5m,
-                            JointTape = 0.176m,
-                            JointTapeCost = 0.880m,
+                            JointTape = 0.1408m,
+                            JointTapeCost = 0.7040m,
                             Length = 16,
                             ProjectID = 1,
-                            Screws = 141m,
+                            Screws = 141,
                             ScrewsCost = 5m,
-                            WallCost = 84.380m
+                            WallCost = 69.2040m
                         },
                         new
                         {
                             WallID = 3,
                             Area = 192m,
-                            Drywall = 7m,
+                            Drywall = 7,
                             DrywallCost = 105m,
                             Height = 8,
-                            JointCompound = 11m,
+                            JointCompound = 11,
                             JointCompoundCost = 5.5m,
                             JointTape = 0.2464m,
                             JointTapeCost = 1.2320m,
                             Length = 24,
                             ProjectID = 1,
-                            Screws = 212m,
+                            Screws = 212,
                             ScrewsCost = 7m,
                             WallCost = 118.7320m
                         },
@@ -182,18 +201,52 @@ namespace BuilderBuddy.Migrations
                         {
                             WallID = 4,
                             Area = 128m,
-                            Drywall = 5m,
-                            DrywallCost = 75m,
+                            Drywall = 4,
+                            DrywallCost = 60m,
                             Height = 8,
-                            JointCompound = 7m,
+                            JointCompound = 7,
                             JointCompoundCost = 3.5m,
-                            JointTape = 0.176m,
-                            JointTapeCost = 0.880m,
+                            JointTape = 0.1408m,
+                            JointTapeCost = 0.7040m,
                             Length = 16,
                             ProjectID = 1,
-                            Screws = 141m,
+                            Screws = 141,
                             ScrewsCost = 5m,
-                            WallCost = 84.380m
+                            WallCost = 69.2040m
+                        },
+                        new
+                        {
+                            WallID = 5,
+                            Area = 180m,
+                            Drywall = 7,
+                            DrywallCost = 105m,
+                            Height = 10,
+                            JointCompound = 10,
+                            JointCompoundCost = 5.0m,
+                            JointTape = 0.2464m,
+                            JointTapeCost = 1.2320m,
+                            Length = 18,
+                            ProjectID = 2,
+                            Screws = 198,
+                            ScrewsCost = 6m,
+                            WallCost = 117.2320m
+                        },
+                        new
+                        {
+                            WallID = 6,
+                            Area = 120m,
+                            Drywall = 4,
+                            DrywallCost = 60m,
+                            Height = 10,
+                            JointCompound = 7,
+                            JointCompoundCost = 3.5m,
+                            JointTape = 0.1408m,
+                            JointTapeCost = 0.7040m,
+                            Length = 12,
+                            ProjectID = 2,
+                            Screws = 132,
+                            ScrewsCost = 4m,
+                            WallCost = 68.2040m
                         });
                 });
 

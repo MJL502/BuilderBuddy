@@ -1,6 +1,8 @@
 ﻿using BuilderBuddy.Controllers;
 using BuilderBuddy.Models;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace BuilderBuddy.Models
 {
@@ -14,28 +16,19 @@ namespace BuilderBuddy.Models
 
         public int ProjectID { get; set; }
 
-        private Context _context;
-
-        /* 
-        public string ProjectName
-            {
+        /*
+        public string? ProjectName
+        {
             get
             {
-                var queryProjectName =
-                from P in _context.Project
-                from W in _context.Wall
-                where P.ProjectID == W.ProjectID
-                select P.ProjectName;
-
-                return queryProjectName.ToString();
-
-                }
-
-            set
-            {
+                return ProjName;
             }
+            set
+            { 
+            }     
         }
-         */
+        */
+
         public int Height { get; set; }
 
         public int Length { get; set; }
